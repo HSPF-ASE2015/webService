@@ -8,6 +8,7 @@ package service;
 import controller.KursController;
 import exceptions.KursException;
 import fachklassen.Kurs;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -37,13 +38,13 @@ public class KursFacadeREST{
     @GET
     @Path("/findAlleKurse")
     @Produces({"application/json"})
+    @SuppressWarnings("FinallyDiscardsException")
     public List<Kurs> findAll() {
         
-        List<Kurs> kurse;
+        List<Kurs> kurse = new ArrayList<>();
         
         try{
             kurse = kursController.findAllKurse();
-            return kurse;
             
         } catch(KursException kursException){
             Kurs kursError = new Kurs();
@@ -51,7 +52,7 @@ public class KursFacadeREST{
             kurse.add(kursError);
             
         } finally{
-            return Kurse;
+            return kurse;
         }
     }  
 }

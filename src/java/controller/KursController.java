@@ -5,6 +5,7 @@
  */
 package controller;
 
+import exceptions.KursException;
 import fachklassen.Kurs;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,15 +45,14 @@ public class KursController {
 
     }
     
-    public List<Kurs> findAllKurse(){
+    public List<Kurs> findAllKurse() throws KursException{
        //initialize();
         
        try {
-           
-        return em.createNamedQuery("getAllKurse").getResultList();  
+            return em.createNamedQuery("getAllKurse").getResultList();  
         
-       } catch (Exception e) {
-            return null;
+       } catch (Exception ex) {
+            throw new KursException(ex.getMessage());
        }
     }   
 }
