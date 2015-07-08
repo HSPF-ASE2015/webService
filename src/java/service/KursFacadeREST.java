@@ -6,6 +6,7 @@
 package service;
 
 import controller.KursController;
+import exceptions.KursException;
 import fachklassen.Kurs;
 import java.util.List;
 import javax.ejb.EJB;
@@ -37,6 +38,20 @@ public class KursFacadeREST{
     @Path("/findAlleKurse")
     @Produces({"application/json"})
     public List<Kurs> findAll() {
-        return kursController.findAllKurse();
+        
+        List<Kurs> kurse;
+        
+        try{
+            kurse = kursController.findAllKurse();
+            return kurse;
+            
+        } catch(KursException kursException){
+            Kurs kursError = new Kurs();
+            kursError.setErrorKurs(kursException.getMessage());
+            kurse.add(kursError);
+            
+        } finally{
+            return Kurse;
+        }
     }  
 }
