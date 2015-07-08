@@ -23,7 +23,6 @@ public class KursController {
     
     @PersistenceContext
     private EntityManager em;
-    private Kurs kurs;
     
     
     public KursController(){ 
@@ -46,7 +45,7 @@ public class KursController {
     }
     
     public List<Kurs> findAllKurse() throws KursException{
-       //initialize();
+       initialize();
         
        try {
             return em.createNamedQuery("getAllKurse").getResultList();  

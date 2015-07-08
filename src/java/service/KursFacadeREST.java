@@ -38,21 +38,35 @@ public class KursFacadeREST{
     @GET
     @Path("/findAlleKurse")
     @Produces({"application/json"})
-    @SuppressWarnings("FinallyDiscardsException")
-    public List<Kurs> findAll() {
-        
+    public List<KursWS> findAll() {
+
         List<Kurs> kurse = new ArrayList<>();
-        
-        try{
+        List<KursWS> kurseWS = new ArrayList<>();
+
+        try {
             kurse = kursController.findAllKurse();
+
+        } catch (KursException kursException) {
+            KursWS kursWSError = new KursWS();
+            kursWSError.setErrorKurs(kursException.getMessage());
+            kurseWS.add(kursWSError);
             
-        } catch(KursException kursException){
-            Kurs kursError = new Kurs();
-            kursError.setErrorKurs(kursException.getMessage());
-            kurse.add(kursError);
-            
-        } finally{
-            return kurse;
+            return kurseWS;
         }
+
+        for (Kurs kurs : kurse) {
+            
+            KursWS kursWS = new KursWS();
+
+            kursWS.setEcts(kurs.getEcts());
+            kursWS.setKursId(kurs.getKursId());
+            kursWS.setName(kurs.getName());
+            kursWS.setSprache(kurs.getSprache());
+            kursWS.setHochschule(kurs.getHochschule());
+
+            kurseWS.add(kursWS);
+        }
+
+        return kurseWS;
     }  
 }

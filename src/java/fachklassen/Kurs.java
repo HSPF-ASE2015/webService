@@ -30,9 +30,6 @@ public class Kurs implements Serializable {
     @Basic
     private String hochschule;
 
-    
-    private String errorKurs;
-
     public Kurs() {
 
     }
@@ -41,6 +38,7 @@ public class Kurs implements Serializable {
         this.ects = Ects;
         this.name = Name;
         this.sprache = Sprache;
+        this.hochschule = "1";
     }
    
     public int getEcts() {
@@ -73,14 +71,6 @@ public class Kurs implements Serializable {
 
     public void setSprache(String sprache) {
         this.sprache = sprache;
-    }
-    
-    public String getErrorKurs() {
-        return errorKurs;
-    }
-
-    public void setErrorKurs(String errorkurs) {
-        this.errorKurs = errorkurs;
     }
     
     public String getHochschule() {
