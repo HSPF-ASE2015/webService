@@ -27,6 +27,9 @@ public class Kurs implements Serializable {
     private String name;
     @Basic
     private String sprache;
+    @Basic
+    private String hochschule;
+
     
     private String errorKurs;
 
@@ -78,5 +81,13 @@ public class Kurs implements Serializable {
 
     public void setErrorKurs(String errorkurs) {
         this.errorKurs = errorkurs;
+    }
+    
+    public String getHochschule() {
+        return hochschule;
+    }
+
+    public void setHochschule(String hochschule) {
+        this.hochschule = hochschule;
     }
 }
