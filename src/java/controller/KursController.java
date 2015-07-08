@@ -45,7 +45,7 @@ public class KursController {
     }
     
     public List<Kurs> findAllKurse() throws KursException{
-       initialize();
+       //initialize();
         
        try {
             return em.createNamedQuery("getAllKurse").getResultList();  
