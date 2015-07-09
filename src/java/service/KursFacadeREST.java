@@ -59,7 +59,6 @@ public class KursFacadeREST{
             KursWS kursWS = new KursWS();
 
             kursWS.setEcts(kurs.getEcts());
-            kursWS.setKursId(kurs.getKursId());
             kursWS.setName(kurs.getName());
             kursWS.setSprache(kurs.getSprache());
             kursWS.setHochschule(kurs.getHochschule());
