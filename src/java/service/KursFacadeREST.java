@@ -20,7 +20,7 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author Jeroen
+ * 
  */
 @Stateless
 @Path("kursJson")

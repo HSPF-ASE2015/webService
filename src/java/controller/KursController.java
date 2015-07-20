@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Jeroen
+ * 
  */
 @Stateless
 public class KursController {

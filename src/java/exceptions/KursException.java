@@ -7,7 +7,7 @@ package exceptions;
 
 /**
  *
- * @author Jeroen
+ * 
  */
 public class KursException extends Exception{
     
